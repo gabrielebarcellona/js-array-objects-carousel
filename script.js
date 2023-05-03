@@ -33,7 +33,7 @@ const containerArrow = document.querySelector('.Arrow');
 for (let i = 0; i < Images.length; i++) {
     let slide = Images[i]
 	containerHighlighted.innerHTML += `
-    <div class="slide${i == 0 ? 'active' : ''}">
+    <div class="slide${i == 0 ? ' active' : ''}">
                 <img src="${slide.image}" 
                 <div class="contents">
                     <h2>${slide.title}</h2>
