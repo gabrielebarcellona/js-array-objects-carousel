@@ -27,6 +27,12 @@
 	width: 80%;
 }
 
+.highlighted .slide{
+    position: relative;
+    display: none;
+    height: 100%;
+}
+
 .Arrow {
 	position: relative;
 	display: flex;

@@ -29,17 +29,27 @@ const Images = [
 const containerHighlighted = document.querySelector('.highlighted');
 const containerArrow = document.querySelector('.Arrow');
 
+
 for (let i = 0; i < Images.length; i++) {
-	containerHighlighted.innerHTML += `<img src="${Images[i].image}" alt="" class="${i == 0 ? 'active' : ''}">`;
-	containerArrow.innerHTML += `<img src="${Images[i].image}" alt="" class="${i == 0 ? 'active' : ''}">`;
+    let slide = Images[i]
+	containerHighlighted.innerHTML += `
+    <div class="slide${i == 0 ? 'active' : ''}">
+                <img src="${slide.image}" 
+                <div class="contents">
+                    <h2>${slide.title}</h2>
+                    <p>${slide.text}/p>
+                </div>
+            </div>`;
+	containerArrow.innerHTML += `<img src="${slide.image}" alt="" class="${i == 0 ? 'active' : ''}">`;
 }
 
 
 
-const listHighlighted = document.querySelectorAll('.highlighted img');
+const listHighlighted = document.querySelectorAll('.highlighted .slide');
 const listArrow = document.querySelectorAll('.Arrow img');
 const btnPrev = document.querySelector('.btn-prev');
 const btnNext = document.querySelector('.btn-next');
+
 
 
 
@@ -81,7 +91,7 @@ btnPrev.addEventListener('click',
 for (let i = 0; i < listArrow.length; i++) {
 	listArrow[i].addEventListener('click',
 		function() {
-			console.log('cliccata la miniature in posizione ' + i)
+			
 			listHighlighted[activeIndex].classList.remove('active');
 			listArrow[activeIndex].classList.remove('active');
 			activeIndex = i;
